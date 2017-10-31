@@ -32,5 +32,5 @@ const styles = StyleSheet.create({
         margin: 10,
         color: '#FFFFFF'
     },
-    mainText: {flex: 1, fontSize: 13, textAlign: 'center', color: '#FFFFFF'}
+    mainText: {flex: 1, fontSize: 16, textAlign: 'center', color: '#FFFFFF'}
 });
