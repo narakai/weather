@@ -26,10 +26,9 @@ const styles = StyleSheet.create({
         height: 130,
     },
     bigText: {
-        flex: 2,
+        flex: 1,
         fontSize: 20,
         textAlign: 'center',
-        margin: 10,
         color: '#FFFFFF'
     },
     mainText: {flex: 1, fontSize: 16, textAlign: 'center', color: '#FFFFFF'}

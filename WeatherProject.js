@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     container: {flex: 1, alignItems: "center"},
     // 列
     backdrop: {flex: 1, flexDirection: "column"},
+    // http://blog.csdn.net/dongdong230/article/details/52469149
     overlay: {
         paddingTop: 5,
         backgroundColor: "#000000",
@@ -85,13 +86,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         padding: 30
     },
+    mainText: {fontSize: baseFontSize, color: "#FFFFFF"},
     zipContainer: {
         height: baseFontSize + 10,
         borderBottomColor: "#DDDDDD",
         borderBottomWidth: 1,
         marginLeft: 5,
-        marginTop: 3
     },
-    zipCode: {flex: 1, flexBasis: 1, width: 50, height: baseFontSize},
-    mainText: {fontSize: baseFontSize, color: "#FFFFFF"}
+    zipCode: {padding: 0, flex: 1, flexBasis: 1, width: 50, height: baseFontSize},
 });
