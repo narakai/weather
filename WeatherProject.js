@@ -5,7 +5,7 @@
  */
 
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import Forecast from "./Forecast"
 import OpenWeatherMap from "./open_weather_map"
@@ -37,12 +37,10 @@ export default class WeatherProject extends Component<{}> {
 
         return (
             <View style={styles.container}>
-                <Image source={require('./flowers.png')}
-                       resizeMode='cover'
-                       style={styles.backdrop}>
-
+                <ImageBackground source={require('./flowers.png')}
+                                 resizeMode='cover'
+                                 style={styles.backdrop}>
                     <View style={styles.overlay}>
-
                         <View style={styles.row}>
                             <Text style={styles.mainText}>
                                 Current weather for
@@ -54,13 +52,14 @@ export default class WeatherProject extends Component<{}> {
                                     underlineColorAndroid="transparent"
                                 />
                             </View>
+                            <Text style={styles.bold}>
+                                Current
+                            </Text>
                         </View>
-
                         {content}
-
                     </View>
 
-                </Image>
+                </ImageBackground>
             </View>
         );
     }
@@ -69,7 +68,7 @@ export default class WeatherProject extends Component<{}> {
 const baseFontSize = 16;
 
 const styles = StyleSheet.create({
-    container: {flex: 1, alignItems: "center"},
+    container: {flex: 1},
     // 列
     backdrop: {flex: 1, flexDirection: "column"},
     // http://blog.csdn.net/dongdong230/article/details/52469149
@@ -94,4 +93,8 @@ const styles = StyleSheet.create({
         marginLeft: 5,
     },
     zipCode: {padding: 0, flex: 1, flexBasis: 1, width: 50, height: baseFontSize},
+    bold: {
+        fontWeight: "bold",
+        color: '#FFFFFF'
+    },
 });
