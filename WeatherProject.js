@@ -5,7 +5,7 @@
  */
 
 import React, {Component} from 'react';
-import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, ImageBackground, StyleSheet, Text, TextInput, TouchableHighlight, View} from 'react-native';
 
 import Forecast from "./Forecast"
 import OpenWeatherMap from "./open_weather_map"
@@ -22,6 +22,10 @@ export default class WeatherProject extends Component<{}> {
             console.log(forecast);
             this.setState({forecast: forecast});
         });
+    };
+
+    _OnPressed = event => {
+        console.log("Pressed");
     };
 
     render() {
@@ -41,22 +45,35 @@ export default class WeatherProject extends Component<{}> {
                                  resizeMode='cover'
                                  style={styles.backdrop}>
                     <View style={styles.overlay}>
-                        <View style={styles.row}>
-                            <Text style={styles.mainText}>
-                                Current weather for
-                            </Text>
-                            <View style={styles.zipContainer}>
-                                <TextInput
-                                    style={[styles.zipCode, styles.mainText]}
-                                    onSubmitEditing={this._handleTextChange}
-                                    underlineColorAndroid="transparent"
-                                />
+                        <View style={styles.column}>
+                            <View style={styles.row}>
+                                <Text style={styles.mainText}>
+                                    Current weather for
+                                </Text>
+                                <View style={styles.zipContainer}>
+                                    <TextInput
+                                        style={[styles.zipCode, styles.mainText]}
+                                        onSubmitEditing={this._handleTextChange}
+                                        underlineColorAndroid="transparent"
+                                    />
+                                </View>
+                                <Text style={styles.bold}>
+                                    Current
+                                </Text>
                             </View>
-                            <Text style={styles.bold}>
-                                Current
-                            </Text>
+                            {content}
+                            {/*如果没有给 TouchableHighlight 设置onPress事件的话，那么他不会产生高亮效果，点击没有任何效果*/}
+                            <TouchableHighlight style={styles.button} onPress={()=>{}}>
+                                <Text> Touch Here </Text>
+                            </TouchableHighlight>
+                            <Button
+                                onPress={this._OnPressed}
+                                title="Press me"
+                                color="#FFFFFF"
+                                accessibilityLabel="Press this button"
+                            />
                         </View>
-                        {content}
+
                     </View>
 
                 </ImageBackground>
@@ -81,6 +98,17 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: "row",
+        flexWrap: "nowrap",
+        alignItems: "flex-start",
+        padding: 30
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#00FFFF',
+        padding: 10
+    },
+    column: {
+        flexDirection: "column",
         flexWrap: "nowrap",
         alignItems: "flex-start",
         padding: 30
